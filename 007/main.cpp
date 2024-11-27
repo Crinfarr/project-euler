@@ -10,11 +10,12 @@ int main() {
     unsigned long i = 3;
     while (primes.size() < 10001) {
         bool isPrime = true;
-        for_each(primes.begin(), primes.end(), [&](int prime) {
+        for (unsigned long prime : primes) {
             if (i % prime != 0)
-                return;
+                continue;
             isPrime = false;
-            });
+            break;
+        }
         if (isPrime) {
             primes.push_back(i);
         }
